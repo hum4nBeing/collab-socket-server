@@ -1,10 +1,12 @@
+const express = require("express");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
 
+const app = express();
+const httpServer = createServer(app);
+
 const port = process.env.PORT || 3001;
 const FRONT_END = process.env.FRONT_END || "*";
-
-const httpServer = createServer();
 
 const io = new Server(httpServer, {
   cors: {
@@ -12,6 +14,10 @@ const io = new Server(httpServer, {
     methods: ["GET", "POST"],
     credentials: true,
   },
+});
+
+app.get("/", (req, res) => {
+  res.send("✅ Collab Socket Server is running!");
 });
 
 const userSocketMap = {};
