@@ -6,8 +6,7 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "socket.io": "^4.7.2",
-    "next": "^13.4.19",
-    "http": "^0.0.1-security"
+    "http": "^0.0.1-security",
+    "socket.io": "^4.7.2"
   }
 }
